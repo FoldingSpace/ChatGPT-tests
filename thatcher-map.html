@@ -1,0 +1,26 @@
+<head>
+    ...
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    ...
+</head>
+<body>
+    ...
+    <div id="map"></div>
+    ...
+</body>
+<script>
+  // initialize the map and set its view to the coordinates of James Thatcher's house in Tacoma, Washington
+var map = L.map('map').setView([47.2529, -122.4443], 13);
+
+// add a tile layer to the map
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+    maxZoom: 18
+}).addTo(map);
+
+// add a marker on the map at the coordinates of James Thatcher's house
+var marker = L.marker([47.2529, -122.4443]).addTo(map);
+  // add a popup to the marker
+marker.bindPopup("<b>James Thatcher's House</b><br>Tacoma, Washington").openPopup();
+
+</script>
